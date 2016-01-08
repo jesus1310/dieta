@@ -42,10 +42,20 @@ public class Usuario
      * Método que muestra los datos de las cantidades ingeridas por el usuario.
      */
     public void mostrarDatos(){
-        System.out.println("Nombre de usuario: " + nombre);
-        System.out.println("Proteínas ingeridas: " + proteinasIngeridas);
-        System.out.println("Carbohidratos ingeridos: " + carbohidratosIngeridos);
-        System.out.println("Grasas ingeridas: " + grasasIngeridas);
-        System.out.println("Calorias totales: " + caloriasIngeridas);
+        if (proteinasIngeridas != 0 || carbohidratosIngeridos != 0 || grasasIngeridas != 0){
+            float totales = proteinasIngeridas + carbohidratosIngeridos + grasasIngeridas;
+            System.out.println("Nombre de usuario: " + nombre);
+            System.out.println("Proteínas ingeridas: " + proteinasIngeridas + "(" + (proteinasIngeridas / totales * 100) + "%)");
+            System.out.println("Carbohidratos ingeridos: " + carbohidratosIngeridos + "(" + (carbohidratosIngeridos / totales * 100) + "%)");
+            System.out.println("Grasas ingeridas: " + grasasIngeridas + "(" + (grasasIngeridas / totales * 100) + "%)");
+            System.out.println("Calorias totales: " + caloriasIngeridas);
+        }
+        else{
+            System.out.println("Nombre de usuario: " + nombre);
+            System.out.println("Proteínas ingeridas: " + proteinasIngeridas);
+            System.out.println("Carbohidratos ingeridos: " + carbohidratosIngeridos);
+            System.out.println("Grasas ingeridas: " + grasasIngeridas);
+            System.out.println("Calorias totales: " + caloriasIngeridas);
+        }
     }
 }
