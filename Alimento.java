@@ -31,7 +31,7 @@ public class Alimento
         this.proteinas = proteinas;
         this.carbohidratos = carbohidratos;
         this.grasas = grasas;
-        calorias = (proteinas*4) + (carbohidratos*4) + (grasas*9);
+        calorias =(proteinas*4) + (carbohidratos*4) + (grasas*9);
         if (proteinas >=0 && proteinas <= 100 && carbohidratos >=0 && carbohidratos <=100 && grasas >=0 && grasas <= 100){
             if (proteinas > carbohidratos && proteinas > grasas){
                 mayoritarios = "Proteinas";
@@ -58,6 +58,34 @@ public class Alimento
         else{
             System.out.println("Alguno de los datos introducidos no es válido");
         }
+    }
+    
+    /**
+     * Método que devuelve las proteinas del alimento por cada 100 gramos.
+     */
+    public float getProteinas(){
+        return proteinas;
+    }
+    
+    /**
+     * Método que devuelve los carbohidratos del alimento por cada 100 gramos.
+     */
+    public float getCarbohidratos(){
+        return carbohidratos;
+    }
+    
+    /**
+     * Método que devuelve las grasas del alimento por cada 100 gramos.
+     */
+    public float getGrasas(){
+        return grasas;
+    }
+    
+    /**
+     * Método que devuelve las calorias del alimento por cada 100 gramos.
+     */
+    public float getCalorias(){
+        return calorias;
     }
 
     /**
