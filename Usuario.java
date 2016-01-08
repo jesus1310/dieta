@@ -42,6 +42,7 @@ public class Usuario
      * Método que muestra los datos de las cantidades ingeridas por el usuario.
      */
     public void mostrarDatos(){
+        System.out.println("Nombre de usuario: " + nombre);
         System.out.println("Proteínas ingeridas: " + proteinasIngeridas);
         System.out.println("Carbohidratos ingeridos: " + carbohidratosIngeridos);
         System.out.println("Grasas ingeridas: " + grasasIngeridas);
