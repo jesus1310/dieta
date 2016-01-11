@@ -58,4 +58,39 @@ public class Usuario
             System.out.println("Calorias totales: " + caloriasIngeridas);
         }
     }
+    
+    /**
+     * Método que muestra las calorias totales ingeridas por el usuario
+     */
+    public float getCaloriasTotales(){
+        return caloriasIngeridas;
+    }
+    
+    /**
+     * Método que muestra el nombre del usuario
+     */
+    public String  getNombre(){
+        return nombre;
+    }
+    
+    /**
+     * Método que compara las calorias totales del usuario sobre el que se invoca con las del usuario pasado por parámetro
+     */
+    public void comparaCalorias(Usuario usuario){
+        String nombreMayor = nombre;
+        String nombreMenor = usuario.getNombre();
+        if (getCaloriasTotales() < usuario.getCaloriasTotales()){
+            nombreMayor = usuario.getNombre();
+            nombreMenor = nombre;
+            System.out.println(nombreMayor + " ha ingerido más calorías que " + nombreMenor + 
+            "(" + usuario.getCaloriasTotales() + " frente a " + getCaloriasTotales() + ")");
+        }
+        else if (getCaloriasTotales() == usuario.getCaloriasTotales()){
+            System.out.println("Ambos usuarios han ingerido las mismas calorías, " + getCaloriasTotales());
+        }        
+        else{
+            System.out.println(nombreMayor + " ha ingerido más calorías que " + nombreMenor + 
+            "(" + getCaloriasTotales() + " frente a " + usuario.getCaloriasTotales() + ")");
+        }
+    }
 }
