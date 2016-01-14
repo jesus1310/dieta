@@ -61,6 +61,13 @@ public class Alimento
     }
     
     /**
+     * Método que devuelve el nombre del alimento
+     */
+    public String getNombre(){
+        return nombre;
+    }
+    
+    /**
      * Método que devuelve las proteinas del alimento por cada 100 gramos.
      */
     public float getProteinas(){

@@ -16,7 +16,8 @@ public class Usuario
     private float grasasIngeridas;
     //Atributo que guarda las calorias ingeridas
     private float caloriasIngeridas;
-    
+    //Atributo que guarda el alimento mas calorico
+    private Alimento masCalorico;
     /**
      * Constructor para objetos de la clase Usuario.
      */
@@ -26,6 +27,7 @@ public class Usuario
         carbohidratosIngeridos = 0;
         grasasIngeridas = 0;
         caloriasIngeridas = 0;
+        masCalorico = null;
     }
     
     /**
@@ -36,6 +38,15 @@ public class Usuario
         carbohidratosIngeridos = carbohidratosIngeridos + (producto.getCarbohidratos() * (gramos / 100));
         grasasIngeridas = grasasIngeridas + (producto.getGrasas() * (gramos / 100));
         caloriasIngeridas = caloriasIngeridas + (producto.getCalorias() * (gramos / 100));
+        
+        if (masCalorico != null){
+            if (masCalorico.getCalorias() <= producto.getCalorias()){
+                masCalorico = producto; 
+            }
+        }
+        else{
+            masCalorico = producto;
+        }
     }
     
     /**
@@ -91,6 +102,18 @@ public class Usuario
         else{
             System.out.println(nombreMayor + " ha ingerido más calorías que " + nombreMenor + 
             "(" + getCaloriasTotales() + " frente a " + usuario.getCaloriasTotales() + ")");
+        }
+    }
+    
+    /**
+     * Método para mostrar el alimento más calórico ingerido por el usuario
+     */
+    public void alimentoMasCalorico(){
+        if (masCalorico == null){
+            System.out.println("El usuario aun no ha ingerido ningún alimento");
+        }
+        else{
+            System.out.println("El más calórico es " + masCalorico.getNombre() + " con " + masCalorico.getCalorias() + " calorias");
         }
     }
 }
