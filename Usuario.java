@@ -151,11 +151,37 @@ public class Usuario
                 contador = contador + 1;
             }
         }
-        if (contador != 0){
-            System.out.println("Se ha/n encontrado " + contador + " alimentos cuyo nombre coincide con el texto buscado " + "(" + nombreDelAlimento + ")");
+        
+        if (contador >= 2){
+            System.out.println("Se han encontrado " + contador + " veces el alimento cuyo nombre coincide con el texto buscado " + "(" + nombreDelAlimento + ")");
         }
-        else{
+        else if (contador == 0){
             System.out.println("No se han encontrado alimentos cuyo nombre contenga el texto buscado" + "(" + nombreDelAlimento + ")");
         }
+        else {
+             System.out.println("Se ha encontrado " + contador + " vez el alimento cuyo nombre coincide con el texto buscado " + "(" + nombreDelAlimento + ")");
+        }
+    }
+    
+    /**
+     * Método que muestra por pantalla si algún alimento se ha ingerido mas de una vez, en caso de que los haya.
+     * Si no los hubiera, se informará de ello
+     */
+    public void ingeridosMasDeUnaVez(){
+        int contNombreRepetido = 0;
+        String nombreAlimentoEncontrado = null;
+        ArrayList<String> listaNombres = new ArrayList<String>();
+        int indice = 0;
+        for (Alimento alimentoLocalizado : alimentosIngeridos){
+            if (nombreAlimentoEncontrado != alimentoLocalizado.getNombre()){
+                nombreAlimentoEncontrado = alimentoLocalizado.getNombre();
+            }
+            listaNombres.add(nombreAlimentoEncontrado);
+            if (listaNombres.get(indice) == nombreAlimentoEncontrado){
+                contNombreRepetido = contNombreRepetido + 1;
+            }
+            indice = indice + 1;
+        }
+        System.out.println(listaNombres);
     }
 }
