@@ -139,4 +139,23 @@ public class Usuario
             System.out.println("El índice introducido no es válido");
         }
     }
+    
+    /**
+     * Método que muestra si un alimento cuyo nombre se pasa por parámetro ha sido ingerido por el usuario.
+     * Tambien muestra cuantas veces lo ha ingerido
+     */
+    public void cantidadDeAlimentoIngerido(String nombreDelAlimento){
+        int contador = 0;
+        for(Alimento alimentoBuscado : alimentosIngeridos){
+            if (alimentoBuscado.getNombre().contains(nombreDelAlimento)){
+                contador = contador + 1;
+            }
+        }
+        if (contador != 0){
+            System.out.println("Se ha/n encontrado " + contador + " alimentos cuyo nombre coincide con el texto buscado " + "(" + nombreDelAlimento + ")");
+        }
+        else{
+            System.out.println("No se han encontrado alimentos cuyo nombre contenga el texto buscado" + "(" + nombreDelAlimento + ")");
+        }
+    }
 }
