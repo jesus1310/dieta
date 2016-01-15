@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Write a description of class Usuario here.
  * 
@@ -18,6 +20,9 @@ public class Usuario
     private float caloriasIngeridas;
     //Atributo que guarda el alimento mas calorico
     private Alimento masCalorico;
+    //ArrayList para almacenar todos los alimentos ingeridos por el usuario
+    private ArrayList<Alimento> alimentosIngeridos;
+    
     /**
      * Constructor para objetos de la clase Usuario.
      */
@@ -28,6 +33,7 @@ public class Usuario
         grasasIngeridas = 0;
         caloriasIngeridas = 0;
         masCalorico = null;
+        alimentosIngeridos = new ArrayList<Alimento>();
     }
     
     /**
@@ -47,6 +53,7 @@ public class Usuario
         else{
             masCalorico = producto;
         }
+        alimentosIngeridos.add(producto);
     }
     
     /**
@@ -114,6 +121,22 @@ public class Usuario
         }
         else{
             System.out.println("El más calórico es " + masCalorico.getNombre() + " con " + masCalorico.getCalorias() + " calorias");
+        }
+    }
+    
+    /**
+     * Método que muestra por pantalla las caracteristicas de un alimento ingerido por el usuario.
+     * Mostrará el alimento que ocupe la posición indicada por parámetro.
+     * El primer alimento ocupa la posición 1, el segundo la posición 2, etc.
+     */
+    public void mostrarDatosAlimento(int posicion){
+        if (posicion >= 1 && posicion <= alimentosIngeridos.size()){
+            int indice = posicion - 1;
+            Alimento alimentoPosicionParametro = alimentosIngeridos.get(indice);
+            alimentoPosicionParametro.muestraDatos();
+        }
+        else{
+            System.out.println("El índice introducido no es válido");
         }
     }
 }
